@@ -1,0 +1,58 @@
+body {
+  position: relative;
+  font-family: "PT Sans", serif;
+  background-color: rgb(38, 36, 36);
+  color: rgb(250, 240, 220);
+}
+
+svg {
+  fill: rgb(250, 240, 220);
+}
+
+.main {
+  padding: 0 16px;
+}
+.main h3 {
+  text-align: justify;
+  margin-top: -10px;
+}
+.main .myname {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+.main .header-style {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.main .displayGap {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.main .padding-left {
+  padding-left: 16px;
+}
+.main .apple {
+  position: relative;
+  top: 10px;
+}
+.main .wechat {
+  position: relative;
+  top: 10px;
+  margin-top: -16px;
+}
+.main .lowes {
+  position: relative;
+  top: 36px;
+  background-color: white;
+  clip-path: inset(30% 12% 27% 12%);
+  margin-top: -64px;
+}
+@media (max-width: 768px) {
+  .main .lowes {
+    right: 10px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

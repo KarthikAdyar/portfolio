@@ -1,0 +1,68 @@
+body {
+  position: relative;
+  font-family: "PT Sans", serif;
+  background-color: rgb(38, 36, 36);
+  color: rgb(250, 240, 220);
+}
+
+@mixin mobile-media {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+svg {
+  fill: rgb(250, 240, 220);
+}
+.main {
+  padding: 0 16px;
+
+  h3 {
+    text-align: justify;
+    margin-top: -10px;
+  }
+
+  .myname {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .header-style {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+  }
+
+  .displayGap {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .padding-left {
+    padding-left: 16px;
+  }
+
+  .apple {
+    position: relative;
+    top: 10px;
+  }
+
+  .wechat {
+    position: relative;
+    top: 10px;
+    margin-top: -16px;
+  }
+
+  .lowes {
+    position: relative;
+    top: 36px;
+    background-color: white;
+    clip-path: inset(30% 12% 27% 12%);
+    margin-top: -64px;
+
+    @include mobile-media() {
+      right: 10px;
+    }
+  }
+}
