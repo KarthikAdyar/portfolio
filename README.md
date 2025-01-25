@@ -1,1 +1,1 @@
- PortFolio Site - https://karthikadyar.github.io/portfolio.github.io/ 
+ PortFolio Site - https://karthikadyar.github.io/portfolio/ 
