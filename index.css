@@ -16,10 +16,19 @@ svg {
 }
 .main h3 {
   text-align: justify;
+  margin-top: 0;
+}
+.main h4 {
+  text-align: justify;
   margin-top: -10px;
 }
-.main .myname {
+.main .work-font {
+  font-size: 2rem;
+}
+.main .name-font {
   font-size: 3rem;
+}
+.main .myname {
   margin-bottom: 0;
   display: inline-block;
   align-items: center;
@@ -44,6 +53,19 @@ svg {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+.main .card {
+  margin-top: 8px;
+  padding: 8px;
+  border: 2px solid #282626;
+  border-radius: 10px;
+  max-width: 43vw;
+  background-color: #282626;
+}
+@media (max-width: 768px) {
+  .main .card {
+    max-width: 96%;
+  }
+}
 .main .header-style {
   text-decoration: underline;
   text-decoration-style: dashed;
@@ -66,7 +88,7 @@ svg {
 }
 .main .apple {
   position: relative;
-  top: 10px;
+  bottom: 12px;
 }
 .main .wechat {
   position: relative;
@@ -75,15 +97,15 @@ svg {
 }
 .main .lowes {
   position: relative;
-  top: 36px;
+  bottom: 12px;
   background-color: white;
-  clip-path: inset(30% 12% 27% 12%);
-  margin-top: -64px;
+  clip-path: inset(23% 12% 16% 11%);
 }
-@media (max-width: 768px) {
-  .main .lowes {
-    right: 10px;
-  }
+
+.flex-rule {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=index.css.map */

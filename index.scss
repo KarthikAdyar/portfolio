@@ -22,11 +22,23 @@ svg {
 
   h3 {
     text-align: justify;
+    margin-top:0;
+  }
+
+  h4 {
+    text-align: justify;
     margin-top: -10px;
   }
 
-  .myname {
+  .work-font{
+    font-size: 2rem;
+  }
+
+  .name-font{
     font-size: 3rem;
+  }
+
+  .myname {
     margin-bottom: 0;
     display: inline-block;
     align-items: center;
@@ -52,6 +64,19 @@ svg {
         transform: scaleX(1);
         transform-origin: bottom left;
       }
+  }
+
+  .card{
+    margin-top: 8px;
+    padding: 8px;
+    border: 2px solid #282626;
+    border-radius: 10px;
+    max-width: 43vw;
+    background-color: #282626;
+
+    @include mobile-media(){
+        max-width: 96%;
+    }
   }
 
   .header-style {
@@ -81,7 +106,7 @@ svg {
 
   .apple {
     position: relative;
-    top: 10px;
+    bottom: 12px;
   }
 
   .wechat {
@@ -92,13 +117,14 @@ svg {
 
   .lowes {
     position: relative;
-    top: 36px;
+    bottom: 12px;
     background-color: white;
-    clip-path: inset(30% 12% 27% 12%);
-    margin-top: -64px;
-
-    @include mobile-media() {
-      right: 10px;
-    }
+    clip-path: inset(23% 12% 16% 11%);
   }
+}
+
+.flex-rule{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
 }
