@@ -93,6 +93,10 @@ svg {
   background-color: white;
   clip-path: inset(23% 12% 16% 11%);
 }
+.main .clip-path-alternative {
+  clip-path: inset(0);
+  margin-top: 10px;
+}
 
 .hoverEffect {
   transform: scale(1);
