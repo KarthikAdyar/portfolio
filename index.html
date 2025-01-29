@@ -156,6 +156,49 @@
   if (navigator.platform === 'iPad' || navigator.platform === 'iPhone' || navigator.userAgent.toLowerCase().includes('safari') && !window.chrome) {
     lowesID && lowesID.classList.add("clip-path-alternative")
   }
+
+  const getRandomValues = () => {
+  const array = new Uint32Array(1);
+  window.crypto.getRandomValues(array);
+  return array[0] / (0xFFFFFFFF + 1);
+};
+
+  const createGlow = () => {
+  const glow = document.createElement('div');
+  glow.className = 'glow';
+  document.body.appendChild(glow);
+
+  const randomX = getRandomValues() * window.innerWidth;
+  const randomY = getRandomValues() * window.innerHeight;
+
+  glow.style.left = `${randomX}px`;
+  glow.style.top = `${randomY}px`;
+  glow.style.zIndex = -10
+
+  setTimeout(() => {
+    document.body.removeChild(glow);
+  }, 10000); // Remove the glow after 10 seconds
+};
+
+// Create a new glow element every 5 seconds
+setInterval(createGlow, 5000);
+
+// Initial glows
+for (let i = 0; i < 5; i++) {
+  createGlow();
+}
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  });
+});
+
 </script>
 
 </html>

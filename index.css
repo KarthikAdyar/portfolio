@@ -5,8 +5,67 @@ body {
   color: rgb(250, 240, 220);
   background-image: radial-gradient(rgba(233, 172, 172, 0.2) 1px, transparent 0);
   background-size: 40px 40px;
+  animation: gradientAnimation 15s ease infinite;
 }
 
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin: -150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
+  animation: glowAnimation 10s infinite ease-in-out;
+}
+
+@keyframes glowAnimation {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+.glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: glowAnimation 10s infinite ease-in-out;
+}
+
+@keyframes glowAnimation {
+  0%, 90% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
 svg {
   fill: rgb(250, 240, 220);
 }
@@ -60,11 +119,34 @@ svg {
   border-radius: 10px;
   max-width: 43vw;
   background-color: #282626;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 @media (max-width: 768px) {
   .main .card {
     max-width: 96%;
   }
+}
+.main .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Shiny border */
+}
+.main .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(250, 240, 240, 0.159), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.main .card:hover::before {
+  opacity: 1; /* Light effect behind the card */
 }
 .main .header-style {
   text-decoration: underline;
