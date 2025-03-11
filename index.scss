@@ -168,6 +168,10 @@ svg {
   opacity: 1; /* Light effect behind the card */
 }
 
+a:link , a:-webkit-any-link , a:visited{
+  color: rgb(143, 143, 236)
+}
+
   .header-style {
     text-decoration: underline;
     text-decoration-style: dashed;

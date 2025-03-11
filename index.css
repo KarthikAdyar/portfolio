@@ -148,6 +148,9 @@ svg {
 .main .card:hover::before {
   opacity: 1; /* Light effect behind the card */
 }
+.main a:link, .main a:-webkit-any-link, .main a:visited {
+  color: rgb(143, 143, 236);
+}
 .main .header-style {
   text-decoration: underline;
   text-decoration-style: dashed;
