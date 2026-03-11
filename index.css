@@ -1,210 +1,222 @@
+:root {
+  --bg: #fdfbf7;
+  --card-bg: #ffffff;
+  --text-main: #002347;
+  --text-sec: #4a5568;
+  --accent: #0056b3;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 35, 71, 0.08);
+}
+
+[data-theme=dark] {
+  --bg: #050a0f;
+  --card-bg: #0c141d;
+  --text-main: #f4f1e6;
+  --text-sec: #a0aec0;
+  --accent: #4dabf7;
+  --border: #1e293b;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
 body {
-  position: relative;
-  font-family: "PT Sans", serif;
-  background-color: rgb(38, 36, 36);
-  color: rgb(250, 240, 220);
-  background-image: radial-gradient(rgba(233, 172, 172, 0.2) 1px, transparent 0);
-  background-size: 40px 40px;
-  animation: gradientAnimation 15s ease infinite;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 120px 24px;
 }
-.glow {
-  position: absolute;
-  top: 50%;
+
+/* Fixed Toggle - High Visibility */
+.theme-switch {
+  position: fixed;
+  bottom: 30px;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  margin: -150px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
-  animation: glowAnimation 10s infinite ease-in-out;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 9999; /* Highest priority */
+  background: var(--text-main);
+  color: var(--bg);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  box-shadow: 0 10px 25px var(--shadow);
+  white-space: nowrap;
 }
 
-@keyframes glowAnimation {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 1;
-  }
-}
-.glow {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0));
-  border-radius: 50%;
-  filter: blur(50px);
-  animation: glowAnimation 10s infinite ease-in-out;
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
 }
 
-@keyframes glowAnimation {
-  0%, 90% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-svg {
-  fill: rgb(250, 240, 220);
+h1 {
+  font-size: clamp(2.2rem, 8vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
 }
 
-.main {
-  padding: 0 16px;
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-sec);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: 15px;
+  display: block;
 }
-.main h3 {
-  text-align: justify;
-  margin-top: 0;
-}
-.main h4 {
-  text-align: justify;
-  margin-top: -10px;
-}
-.main .work-font {
-  font-size: 2rem;
-}
-.main .name-font {
-  font-size: 3rem;
-}
-.main .myname {
-  margin-bottom: 0;
-  display: inline-block;
-  align-items: center;
-  position: relative;
-  text-decoration: none;
-  transition: 1s ease-in-out;
-}
-.main .myname::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  border-radius: 5px;
-  height: 0.05em;
-  bottom: 0;
-  left: 0%;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-  background-color: rgb(250, 240, 220);
-}
-.main .myname:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.main .card {
-  margin-top: 8px;
-  padding: 8px;
-  border: 2px solid #282626;
-  border-radius: 10px;
-  max-width: 43vw;
-  background-color: #282626;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-}
-@media (max-width: 768px) {
-  .main .card {
-    max-width: 96%;
-  }
-}
-.main .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.6); /* Shiny border */
-}
-.main .card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(250, 240, 240, 0.159), rgba(0, 0, 0, 0));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-.main .card:hover::before {
-  opacity: 1; /* Light effect behind the card */
-}
-.main a:link, .main a:-webkit-any-link, .main a:visited {
-  color: rgb(143, 143, 236);
-}
-.main .header-style {
-  text-decoration: underline;
-  text-decoration-style: dashed;
-}
-.main .displayGap {
+
+.contact-links {
   display: flex;
-  gap: 10px;
   justify-content: center;
-}
-.main .padding-left {
-  padding-left: 16px;
-}
-.main .apple {
-  position: relative;
-  bottom: 12px;
-}
-.main .wechat {
-  position: relative;
-  top: 10px;
-  margin-top: -16px;
-}
-.main .lowes {
-  position: relative;
-  bottom: 12px;
-  background-color: white;
-  clip-path: inset(23% 12% 16% 11%);
-}
-.main .clip-path-alternative {
-  clip-path: inset(0);
-  margin-top: 10px;
-}
-
-.hoverEffect {
-  transform: scale(1);
-  transition: 0.2s ease-in-out;
-}
-.hoverEffect:hover {
-  transform: scale(1.2);
-  transition: 0.2s ease-in-out;
-}
-
-.hoverEffect-2 {
-  transform: scale(1);
-  transition: 0.2s ease-in-out;
-}
-.hoverEffect-2:hover {
-  transform: scale(1.05);
-  transition: 0.2s ease-in-out;
-}
-
-.flex-rule {
-  display: flex;
-  gap: 32px;
   flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 0.9rem;
+}
+
+.contact-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Carousel - Fixed Alignment */
+.carousel-container {
+  width: 100%;
+  margin: 40px 0;
+  overflow: hidden;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.skill-item {
+  padding: 0 30px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--text-sec);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Grid */
+.section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-sec);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  margin: 40px 0 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px var(--shadow);
+  border-color: var(--accent);
+}
+
+.card-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-sec);
+}
+
+/* Desktop Adjustment */
+@media (min-width: 769px) {
+  .theme-switch {
+    bottom: auto;
+    top: 30px;
+    right: 30px;
+    left: auto;
+    transform: none;
+  }
+}
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    padding-top: 10px;
+  }
+  .contact-links {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
